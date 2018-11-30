@@ -7,6 +7,7 @@ iris = datasets.load_iris()
 
 # Define main() function
 def main():
+    clf = svm.SVC()
     # Loop until user finishes entering categories and quits
     targets = []
     target = input("Enter target name, or enter \"done\" to quit adding targets: ")
@@ -22,6 +23,8 @@ def main():
             print(data)
         except FileNotFoundError:
             print("File for target \"" + target + "\" not found")
+    X, y = data, targets
+    clf.fit(X, y)
 
 
 def load(target):
